@@ -22,7 +22,7 @@ int main()
     for(int i = 0; i < length; i++)
     {
         temp = num[i];
-        each_digit = atoi(&temp);
+        each_digit = temp - 48;
         add_num = "";
 
         for(int j = 0; j < length; j++)
