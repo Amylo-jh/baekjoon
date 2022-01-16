@@ -1,0 +1,1 @@
+{"name":"Local: 753-1_new","url":"/home/amylo/baekjoon/baekjoon/753-1_new.cpp","tests":[{"id":1642225063105,"input":"2021 5","output":"2022"},{"id":1642225098228,"input":"2022 5","output":"2054"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/amylo/baekjoon/baekjoon/753-1_new.cpp","group":"local","local":true}
