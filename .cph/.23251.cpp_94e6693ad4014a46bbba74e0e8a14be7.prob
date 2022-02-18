@@ -1,0 +1,1 @@
+{"name":"Local: 23251","url":"/home/amylo/baekjoon/baekjoon/23251.cpp","tests":[{"id":1645207840951,"input":"3\n2\n3\n123456","output":"46\n69\n2839488"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/amylo/baekjoon/baekjoon/23251.cpp","group":"local","local":true}
