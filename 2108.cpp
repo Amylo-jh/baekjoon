@@ -65,6 +65,11 @@ int main()
         range = nums[num-1] - nums[0];
     }
 
+    if(avg == -0)
+    {
+        avg = 0;
+    }
+
     cout << avg << endl;
     cout << middle << endl;
     cout << most_frequent << endl;
