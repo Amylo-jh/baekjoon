@@ -1,0 +1,1 @@
+{"name":"Local: 9324","url":"/home/amylo/baekjoon/baekjoon/9324.cpp","tests":[{"id":1646938377881,"input":"5\nABCDEFABCDEFAABBCCDDEEFF\nABCDEFABCDEFAABBCCDDEEF\nAAAA\nAA\nAAAAAAAA","output":"OK\nFAKE\nOK\nOK\nOK"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/amylo/baekjoon/baekjoon/9324.cpp","group":"local","local":true}
