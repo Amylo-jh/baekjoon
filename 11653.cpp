@@ -16,7 +16,7 @@ int main()
             cout << i << endl;
             n = n / i;
             i = 2;
-            continue;;
+            continue;
         }
         i++;
     }
