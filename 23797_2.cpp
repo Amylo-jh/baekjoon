@@ -5,22 +5,23 @@ using namespace std;
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     string str;
     cin >> str;
 
     int k = 0;
     int p = 0;
-    int max_frog = 0;
 
     for(int i = 0; i < str.length(); i++)
     {
-        char ch = str[i];
-
-        if(ch == 'K')
+        if(str[i] == 'K')
         {
             k++;
             
-            if(p > 0)
+            if(p)
             {
                 p--;
             }
@@ -29,15 +30,12 @@ int main()
         {
             p++;
 
-            if(k > 0)
+            if(k)
             {
                 k--;
             }
         }
-
-        max_frog = max(max_frog, k);
-        max_frog = max(max_frog, p);
     }
 
-    cout << max_frog;
+    cout << p + k;
 }
