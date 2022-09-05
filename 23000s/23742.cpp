@@ -41,6 +41,8 @@ int main()
     }
     total_score = minus_score + plus_score * counter;
 
+    //점수가 음수라고 무조건 빼는것보다는, 
+    //인원수 계수가 더 늘어난다면 한 그룹에 같이 포함시키는 것이 총점에는 이득이다.
     for(int i = position; i >= 0; i--)
     {
         minus_score = minus_score - score[i];
