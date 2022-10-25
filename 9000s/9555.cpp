@@ -38,7 +38,7 @@ int main()
                 for(int k = 0; k < 8; k++)
                 {
                     int y = i + d_y[k];
-                    int x = i + d_x[k];
+                    int x = j + d_x[k];
 
                     if(0 <= y && y < n && 0 <= x && x < m)
                     {
@@ -60,6 +60,6 @@ int main()
             }
         }
 
-        cout >> count >> "\n";
+        cout << count << "\n";
     }
 }
