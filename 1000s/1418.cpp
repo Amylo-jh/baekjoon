@@ -5,53 +5,48 @@ using namespace std;
 
 int main()
 {
+    vector <bool> sieve(100001);
+    vector <int> prime;
     int n, k;
     cin >> n >> k;
 
-    vector <bool> prime(100001);
-    vector <int> primes;
+    sieve.assign(100001, true);
+    sieve[0] = false;
+    sieve[1] = false;
     for(int i = 2; i <= 100000; i++)
     {
-        prime[i] = true;
-    }
-    for(int i = 2; i <= 100000; i++)
-    {
-        if(prime[i])
+        if(sieve[i])
         {
-            primes.push_back(i);
-            int j = 2;
-            while(i*j <= 100000)
+            if(i > k)
             {
-                prime[i*j] = false;
-                j++;
+                prime.push_back(i);
             }
-        }
-    }
-    int index;
-    int prime_size = primes.size();
-    for(int i = 0; i < prime_size; i++)
-    {
-        if(primes[i] > k)
-        {
-            index = i;
-            break;
+            
+            for(int j = 2; i*j <= 100000; j++)
+            {
+                sieve[i*j] = false;
+            }
         }
     }
 
     int count = min(n, k);
     for(int i = k+1; i <= n; i++)
     {
-        bool is_sejun_num = true;
-        for(int j = index; j < prime_size && primes[j] <= i; j++)
+        bool flag = true;
+        for(int j : prime)
         {
-            if(i % primes[j] == 0)
+            if(j > i)
             {
-                is_sejun_num = false;
+                break;
+            }
+            if(i % j == 0)
+            {
+                flag = false;
                 break;
             }
         }
 
-        if(is_sejun_num)
+        if(flag)
         {
             count++;
         }
