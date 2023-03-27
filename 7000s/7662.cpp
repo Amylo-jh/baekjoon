@@ -5,6 +5,7 @@ using namespace std;
 
 // smmh = Symmetric Min-Max Heap
 // https://constructionsite.tistory.com/48
+// http://iiitdm.ac.in/old/Faculty_Teaching/Sadagopan/pdf/ADSA/new/min_max%20_heap.pdf
 vector <int> smmh;
 
 void push(int value)
