@@ -36,7 +36,9 @@ int main()
             }
         }
 
-        printf("%.3f", over_avg / num * 100);
+        cout << fixed;
+        cout.precision(3);
+        cout << over_avg / num * 100;
         cout << "%" << endl;
     }
 }
