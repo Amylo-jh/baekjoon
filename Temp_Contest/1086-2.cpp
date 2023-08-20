@@ -13,12 +13,30 @@ int main()
     cin >> n;
 
     int arr[4] = {0};
-    map <long double, int> slope;
+    map <pair <double, int>, int> slope;
 
     for(int i = 0; i < n; i++)
     {
-        long double x, y;
+        int curr_loc = 0;
+        double x, y;
         cin >> x >> y;
+
+        if(x > 0 && y > 0)
+        {
+            curr_loc = 1;
+        }
+        else if(x > 0 && y > 0)
+        {
+            curr_loc = 2;
+        }
+        else if(x < 0 && y < 0)
+        {
+            curr_loc = 3;
+        }
+        else if(x < 0 && y > 0)
+        {
+            curr_loc = 4;
+        }
 
         if(x == 0 && y > 0)
         {
@@ -40,8 +58,8 @@ int main()
             arr[3] = 1;
             continue;
         }
-        long double curr_slope = y/x;
-        slope.insert({curr_slope, 1});
+        double curr_slope = y/x;
+        slope.insert({{curr_slope, curr_loc}, 1});
     }
 
     cout << slope.size() + arr[0]+arr[1]+arr[2]+arr[3];
