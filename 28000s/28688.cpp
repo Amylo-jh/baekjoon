@@ -22,7 +22,18 @@ int main()
         }
         else
         {
-            cout << "Second";
+            if(n % 2 && m % 2)
+            {
+                cout << "First";
+            }
+            else if(n % 2 || m % 2)
+            {
+                cout << "Second";
+            }
+            else
+            {
+                cout << "Second";
+            }
         }
         cout << "\n";
     }
