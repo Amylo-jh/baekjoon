@@ -1,0 +1,114 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int main()
+{
+    double x11, x12, y11, y12;
+    double x21, x22, y21, y22;
+    cin >> x11 >> y11 >> x12 >> y12;
+    cin >> x21 >> y21 >> x22 >> y22;
+
+    double dx1, dx2, dy1, dy2;
+    dx1 = x11 - x12;
+    dy1 = y11 - y12;
+    dx2 = x21 - x22;
+    dy2 = y21 - y22;
+
+    double slope1, slope2;
+    if(dx1)
+    {
+        if(dy1)
+        {
+            slope1 = dy1/dx1;
+        }
+        else
+        {
+            slope1 = 0;
+        }
+    }
+    else
+    {
+        slope1 = INT32_MAX;
+    }
+    if(dx2)
+    {
+        if(dy2)
+        {
+            slope2 = dy2/dx2;
+        }
+        else
+        {
+            slope2 = 0;
+        }
+    }
+    else
+    {
+        slope2 = INT32_MAX;
+    }
+
+    double ay1 = 0, ay2= 0;
+    if(slope1 != INT32_MAX)
+    {
+        ay1 = y11 - slope1*x11;
+    }
+    if(slope2 != INT32_MAX)
+    {
+        ay2 = y21 - slope2*x21;
+    }
+
+    bool flag = false;
+
+    if(slope1 == slope2 && ay1 == ay2)
+    {
+        // 선분이 겹치는지 판별
+        // 두 선분이 모두 수직일 때도 사용 가능
+        if( (min(y11, y12) <= y21 && y21 <= max(y11, y12) ) || (min(y11, y12) < y22 && y22 <= max(y11, y12)) ||
+            (min(y21, y22) <= y11 && y11 <= max(y21, y22) ) || (min(y21, y22) < y12 && y12 <= max(y21, y22))
+        )
+        {
+            flag = true;
+        }
+    }
+    else if(slope1 == slope2 && ay1 != ay2)
+    {
+        // 선분이 평행할 경우
+        flag = false;
+    }
+    else if(slope1 == INT32_MAX)
+    {
+        // 첫 번째 선분이 수직인 경우
+        double slope = slope2;
+        double y = x11*slope + ay2;
+
+        if(y11 <= y && y <= y12)
+        {
+            flag = true;
+        }
+    }
+    else if(slope2 == INT32_MAX)
+    {
+        // 두 번째 선분이 수직인 경우
+        double slope = slope1;
+        double y = x21* slope + ay1;
+
+        if(y21 <= y && y <= y22)
+        {
+            flag = true;
+        }
+    }
+    else if(slope1 != INT32_MAX && slope2 != INT32_MAX)
+    {
+        // 일반적인 선분일 경우
+        double x = (ay1 - ay2) / (slope2 - slope1);
+        double y = x * slope1 + ay1;
+
+        if(min(y11, y12) <= y && y <= max(y11, y12) && min(y21, y22) <= y && y <= max(y21, y22) )
+        {
+            flag = true;
+        }
+    }
+
+    cout << flag;
+}
