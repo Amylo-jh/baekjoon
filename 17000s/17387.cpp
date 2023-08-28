@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -129,8 +130,9 @@ int main()
     else if(slope1 != INT32_MAX && slope2 != INT32_MAX)
     {
         // 일반적인 선분일 경우
-        double x = (ay1 - ay2) / (slope2 - slope1);
-        double y = x * slope1 + ay1;
+        // double 대신 float 쓴 이유는 부동소수점 오차가 존재하여 일부러 정밀도를 낮추기 위함
+        float x = (ay1 - ay2) / (slope2 - slope1);
+        float y = x * slope1 + ay1;
 
         if(min(y11, y12) <= y && y <= max(y11, y12) && min(y21, y22) <= y && y <= max(y21, y22) &&
            min(x11, x12) <= x && x <= max(x11, x12) && min(x21, x22) <= x && x <= max(x21, x22) )
