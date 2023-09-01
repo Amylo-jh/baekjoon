@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <cmath>
 
 using namespace std;
 
@@ -62,13 +63,41 @@ int main()
 
     if(slope1 == slope2 && ay1 == ay2)
     {
-        // 선분이 겹치는지 판별
-        // 두 선분이 모두 수직일 때도 사용 가능
-        if( (min(y11, y12) <= y21 && y21 <= max(y11, y12) ) || (min(y11, y12) < y22 && y22 <= max(y11, y12)) ||
-            (min(y21, y22) <= y11 && y11 <= max(y21, y22) ) || (min(y21, y22) < y12 && y12 <= max(y21, y22))
-        )
+        if(slope1 == INT32_MAX && slope2 == INT32_MAX)
         {
-            flag = true;
+            // 두 선분이 모두 수직일 때 사용
+            if(x11 == x21)
+            {
+                if( (min(y11, y12) <= y21 && y21 <= max(y11, y12) ) || (min(y11, y12) < y22 && y22 <= max(y11, y12)) ||
+                    (min(y21, y22) <= y11 && y11 <= max(y21, y22) ) || (min(y21, y22) < y12 && y12 <= max(y21, y22)))
+                {
+                    flag = true;
+                }
+            }
+        }
+        else
+        {
+            // 두 선분이 모두 x축에 평행할 때 사용
+            if(slope1 == 0 && slope2 == 0)
+            {
+                if( (min(x11, x12) <= x21 && x21 <= max(x11, x12) ) || (min(x11, x12) < x22 && x22 <= max(x11, x12)) ||
+                    (min(x21, x22) <= x11 && x11 <= max(x21, x22) ) || (min(x21, x22) < x12 && x12 <= max(x21, x22)) )
+                {
+                    flag = true;
+                }
+
+            }
+            else
+            {
+                // 일반적인 기울기 + a값일때 사용
+                // 선분이 겹치는지 판별
+                if( (min(y11, y12) <= y21 && y21 <= max(y11, y12) ) || (min(y11, y12) < y22 && y22 <= max(y11, y12)) ||
+                    (min(y21, y22) <= y11 && y11 <= max(y21, y22) ) || (min(y21, y22) < y12 && y12 <= max(y21, y22))
+                )
+                {
+                    flag = true;
+                }
+            }
         }
     }
     else if(slope1 == slope2 && ay1 != ay2)
@@ -82,7 +111,7 @@ int main()
         double slope = slope2;
         double y = x11*slope + ay2;
 
-        if(y11 <= y && y <= y12)
+        if(min(y11, y12) <= y && y <= max(y11, y12) && min(x21, x22) <= x11 && x11 <= max(x21, x22))
         {
             flag = true;
         }
@@ -93,7 +122,7 @@ int main()
         double slope = slope1;
         double y = x21* slope + ay1;
 
-        if(y21 <= y && y <= y22)
+        if(min(y21, y22) <= y && y <= max(y21, y22) && min(x11, x12) <= x21 && x21 <= max(x11, x12))
         {
             flag = true;
         }
@@ -101,10 +130,12 @@ int main()
     else if(slope1 != INT32_MAX && slope2 != INT32_MAX)
     {
         // 일반적인 선분일 경우
-        double x = (ay1 - ay2) / (slope2 - slope1);
-        double y = x * slope1 + ay1;
+        // double 대신 float 쓴 이유는 부동소수점 오차가 존재하여 일부러 정밀도를 낮추기 위함
+        float x = (ay1 - ay2) / (slope2 - slope1);
+        float y = x * slope1 + ay1;
 
-        if(min(y11, y12) <= y && y <= max(y11, y12) && min(y21, y22) <= y && y <= max(y21, y22) )
+        if(min(y11, y12) <= y && y <= max(y11, y12) && min(y21, y22) <= y && y <= max(y21, y22) &&
+           min(x11, x12) <= x && x <= max(x11, x12) && min(x21, x22) <= x && x <= max(x21, x22) )
         {
             flag = true;
         }
