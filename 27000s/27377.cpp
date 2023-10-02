@@ -1,29 +1,44 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
     int tc;
     cin >> tc;
 
     while(tc--)
     {
-        int n, s, t;
+        long long n, s, t, time = 0;
         cin >> n >> s >> t;
-        vector <int> dp(n+1);
-        dp[1] = s;
-
-        for(int i = 2; i <= n; i++)
+        
+        while(n)
         {
-            dp[i] = dp[i-1] + s;
-            if(i % 2 == 0)
+            if(n % 2)
             {
-                dp[i] = min(dp[i], dp[i/2] + t);
-            }            
+                n--;
+                time += s;
+            }
+            else
+            {
+                n /= 2;
+
+                long long temp = n*s;
+                if(temp < 0)
+                {
+                    time += t;
+                }
+                else
+                {
+                    time += min(t, n*s);
+                }
+            }
         }
 
-        cout << dp[n] << "\n";
+        cout << time << "\n";
     }
 }
