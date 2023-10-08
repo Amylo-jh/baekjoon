@@ -10,14 +10,16 @@ int main()
 
     long long sum = 0;
     int count = 0;
-    for(int i = 1; i < n; i++)
+    for(int i = 1;; i++)
     {
         sum += i;
         count++;
         if(sum > n)
         {
+            count--;
             break;
         }
+        
     }
-    cout << count-1;
+    cout << count;
 }
