@@ -1,0 +1,1 @@
+{"name":"Local: 2109","url":"/home/amylo/baekjoon/2000s/2109.cpp","tests":[{"id":1698328897765,"input":"5\n3 3\n2 3\n1 3\n100 4\n90 4","output":"195"},{"id":1698333524581,"input":"7\n20 1\n2 1\n10 3\n100 2\n8 2\n5 20\n50 10","output":"185"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/home/amylo/baekjoon/2000s/2109.cpp","group":"local","local":true}
