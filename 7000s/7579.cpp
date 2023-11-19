@@ -13,7 +13,6 @@ int main()
     vector <pair <int, int>> app(n+1);
     vector <vector <int>> dp(2);
     
-
     int total_size = 0;
     int max_cost = 0;
     for(int i = 1; i <= n; i++)
@@ -31,7 +30,7 @@ int main()
 
     for(int i = 1; i <= n; i++)
     {
-        for(int w = 1; w <= max_cost; w++)
+        for(int w = 0; w <= max_cost; w++)
         {
             if(app[i].second <= w)
             {
