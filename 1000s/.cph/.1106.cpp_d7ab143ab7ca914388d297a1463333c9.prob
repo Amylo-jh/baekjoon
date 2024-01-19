@@ -1,0 +1,1 @@
+{"name":"Local: 1106","url":"/config/workspace/baekjoon/1000s/1106.cpp","tests":[{"id":1705593543751,"input":"100 3\n7 12\n20 30\n30 60","output":"57"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/config/workspace/baekjoon/1000s/1106.cpp","group":"local","local":true}
