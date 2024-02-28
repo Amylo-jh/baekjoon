@@ -1,0 +1,1 @@
+{"name":"Local: 11375","url":"/config/workspace/baekjoon/11000s/11375.cpp","tests":[{"id":1709116124866,"input":"10 5\n2 1 2\n2 2 3\n2 3 4\n2 4 5\n2 5 6\n2 6 7\n2 7 8\n2 8 9\n2 9 10\n2 10 1","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/config/workspace/baekjoon/11000s/11375.cpp","group":"local","local":true}
