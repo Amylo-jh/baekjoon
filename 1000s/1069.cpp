@@ -33,9 +33,6 @@ int main()
     {
         minTime = min(minTime, -RemainingDistance + currTime);
     }
-    // RemainingDistance -= d;
-    // currTime += t;
-    // minTime = min(minTime, -RemainingDistance + currTime);
     
     cout.precision(20);
     cout << minTime;
