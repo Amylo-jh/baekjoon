@@ -9,7 +9,7 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    
+
     int n;
     cin >> n;
 
@@ -25,7 +25,7 @@ int main()
         original[i] = str;
         sort(str.begin(), str.end());
         lower[i] = str;
-        sort(str.begin(), str.end(), greater<char>()); 
+        reverse(str.begin(), str.end());
         upper[i] = str;
     }
     sort(lower.begin(), lower.end());
@@ -37,7 +37,7 @@ int main()
 
         sort(str.begin(), str.end());
         int lowest_index = lower_bound(upper.begin(), upper.end(), str) - upper.begin();
-        sort(str.begin(), str.end(), greater<char>());
+        reverse(str.begin(), str.end());
         int highest_index = upper_bound(lower.begin(), lower.end(), str) - lower.begin();
 
         lowest_index++;
