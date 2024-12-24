@@ -5,14 +5,15 @@ using namespace std;
 
 int main()
 {
-    vector <long long> pos_pib(1000001, 0);
-    vector <long long> neg_pib(1000001, 0);
+    int n;
+    cin >> n;
+
+    vector <long long> pos_pib(n, 0);
+    vector <long long> neg_pib(n, 0);
     pos_pib[1] = 1;
     pos_pib[0] = 0;
     neg_pib[1] = 1;
-
-    int n;
-    cin >> n;
+    
     for(int i = 2; i <= abs(n); i++)
     {
         pos_pib[i] = (pos_pib[i-1] + pos_pib[i-2]) % 1000000000;
