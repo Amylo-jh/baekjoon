@@ -17,10 +17,7 @@ int main()
     {
         cin >> arr[i];
         arr[i] += i-1;
-        if(arr[i-1] >= arr[i])
-        {
-            arr[i] = arr[i-1];
-        }
+        arr[i] = max(arr[i], arr[i-1]);
     }
     cin >> n;
     int num, idx;
