@@ -1,8 +1,3 @@
-#include <iostream>
-using namespace std;
+#include<iostream>
 int main()
-{
-int n;
-cin>>n;
-cout<<(n/9)+(!!(n%9))+((n%2)&&(!(((n/9)+(!!(n%9)))%2)));
-}
+{int n,a;std::cin>>n;a=(n-1)/9;std::cout<<a+(a%2&n%2)+1;}
