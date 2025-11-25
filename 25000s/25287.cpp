@@ -13,24 +13,28 @@ int main()
     cin >> tc;
     while(tc--)
     {
-        int n, tmp;
+        int n, tmp, mn, mx;
         cin >> n;
-        vector <vector <int>> arr(2, vector <int>(n));
-        vector <int> answer(n);
+        vector <int> arr(n);
         for(int i = 0; i < n; i++)
         {
-            cin >> tmp;
-            arr[0][i] = tmp;
-            arr[1][i] = n - tmp + 1;
+            cin >> arr[i];
         }
-        answer[0] = min(arr[0][0], arr[1][0]);
+        arr[0] = min(arr[0], n-arr[0]+1);
         bool flag = true;
         for(int i = 1; i < n; i++)
         {
-            arr[0][i] = (answer[i-1] <= arr[0][i] ? arr[0][i] : INT32_MAX);
-            arr[1][i] = (answer[i-1] <= arr[1][i] ? arr[1][i] : INT32_MAX);
-            answer[i] = min(arr[0][i], arr[1][i]);
-            if(answer[i] == INT32_MAX)
+            mn = min(arr[i], n-arr[i]+1);
+            mx = max(arr[i], n-arr[i]+1);
+            if(arr[i-1] <= mn)
+            {
+                arr[i] = mn;
+            }
+            else if(arr[i-1] <= mx)
+            {
+                arr[i] = mx;
+            }
+            else
             {
                 cout << "NO\n";
                 flag = false;
