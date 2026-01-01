@@ -21,6 +21,11 @@ int main()
             answer.push_back(i);
         }
     }
+    if(answer.size() == 0)
+    {
+        cout << -1;
+        return 0;
+    }
     for(auto i : answer)
     {
         cout << i << " ";
