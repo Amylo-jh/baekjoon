@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    long long n, c, max_profit = 0, max_food = 0;
+    int n, c, max_profit = 0, max_food = 0;
     cin >> n >> c;
     // input : eat, size, price
     // saved : size, eat, price, used
@@ -20,8 +20,8 @@ int main()
 
     for (int i = 1; i <= max_food; i++)
     {
-        long long curr_food = i;
-        long long curr_profit = -i * c;
+        int curr_food = i;
+        int curr_profit = -i * c;
         while (curr_food)
         {
             bool not_ate = true;
